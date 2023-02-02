@@ -38,11 +38,29 @@ proj_x = exp_value_obs(sigma_x)
 proj_y = exp_value_obs(sigma_y)
 proj_z = exp_value_obs(sigma_z)
 
-x = [0, 1, 2, 3, 0.5, 2.5, 1, 2, 3, 4, 1.5, 3.5]
-y = [0, 0, 0, 0, np.sqrt(3)/2, np.sqrt(3)/2, np.sqrt(3), np.sqrt(3), np.sqrt(3), np.sqrt(3), 3*np.sqrt(3)/2, 3 *np.sqrt(3)/2]
+x = np.array([0, 1, 2, 3, 0.5, 2.5, 1, 2, 3, 4, 1.5, 3.5])
+y = np.array([0, 0, 0, 0, np.sqrt(3)/2, np.sqrt(3)/2, np.sqrt(3), np.sqrt(3), np.sqrt(3), np.sqrt(3), 3*np.sqrt(3)/2, 3 *np.sqrt(3)/2])
 
 fig, ax = plt.subplots()
-ax.plot(x, y, "o", markersize=12)
+# Région élémentaire
+ax.plot(x, y, "o", markersize=12, color="tab:orange")
+# Région pour le visuel
+ax.plot(x + 4, y, "o", markersize=12, color="tab:blue")
+ax.plot(x - 4, y, "o", markersize=12, color="tab:blue")
+ax.plot(x, y + 2*np.sqrt(3), "o", markersize=12, color="tab:blue")
+ax.plot(x, y - 2*np.sqrt(3), "o", markersize=12, color="tab:blue")
+ax.plot(x + 4, y - 2*np.sqrt(3), "o", markersize=12, color="tab:blue")
+ax.plot(x - 4, y - 2*np.sqrt(3), "o", markersize=12, color="tab:blue")
+ax.plot(x + 4, y + 2*np.sqrt(3), "o", markersize=12, color="tab:blue")
+ax.plot(x - 4, y + 2*np.sqrt(3), "o", markersize=12, color="tab:blue")
 ax.quiver(x, y, proj_x, proj_y)
+ax.quiver(x - 4, y, proj_x, proj_y)
+ax.quiver(x + 4, y, proj_x, proj_y)
+ax.quiver(x, y + 2*np.sqrt(3), proj_x, proj_y)
+ax.quiver(x, y - 2*np.sqrt(3), proj_x, proj_y)
+ax.quiver(x + 4, y + 2*np.sqrt(3), proj_x, proj_y)
+ax.quiver(x + 4, y - 2*np.sqrt(3), proj_x, proj_y)
+ax.quiver(x - 4, y + 2*np.sqrt(3), proj_x, proj_y)
+ax.quiver(x - 4, y - 2*np.sqrt(3), proj_x, proj_y)
 
 fig.savefig("Images/spins_periodique.png")
