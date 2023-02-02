@@ -1,7 +1,7 @@
 import numpy as np
 from scipy.sparse import kron, csr_matrix
 from tqdm import tqdm
-from pauli import sigma_0, sigma_m, sigma_p, reseau
+from pauli import sigma_0, sigma_m, sigma_p, reseau, sigma_z
 
 
 """
