@@ -1,0 +1,43 @@
+\documentclass[12pt]{article}
+\usepackage{colors,style,commands}
+
+\MasterColor  {YALE1_MASTER}
+
+% Title page variables
+\Titre        {Estimation de l'état fondamental du modèle de Heisenberg sur le
+réseau kagome avec un algorithme variationnel quantique}
+\SousTitre    {Projet d'initiation à la recherche}
+
+\NomCours     {Initiation à la Recherche}
+\CodeCours    {PHQ662}
+
+\Nom          {Dimitri Bonanni-Surprenant}
+
+\Enseignant   {Yves Grosdidier}
+
+\Emblem       {./figs/emblem_UDES.png}
+\University   {Université de Sherbrooke}
+\Faculte      {des Sciences}
+\Departement  {de Physique}
+\Date         {\today}
+
+
+\begin{document}
+
+  \subfile{PageTitre}
+
+  \clearpage
+
+  \subfile{sections/introduction}
+
+  \subfile{sections/theorie.tex}
+
+  \subfile{sections/metho.tex}
+
+  \clearpage
+
+  \nocite{*}
+  \bibliography{refs}
+
+\end{document}
+

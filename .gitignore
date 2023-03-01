@@ -129,3 +129,10 @@ dmypy.json
 .pyre/
 
 Data/
+*.aux
+*.log
+*.fls
+*.fdb_latexmk
+*.toc
+*.blg
+*.bbl

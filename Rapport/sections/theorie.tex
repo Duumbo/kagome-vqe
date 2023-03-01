@@ -1,0 +1,58 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+  
+  \section{Théorie}
+  L'estimation de l'état fondamental d'un réseau appartient aux problèmes à $N$
+  corps. Ce type de problème est très difficile à résoudre en général. Pour cette
+  raison, le réseau utilisé dans ce projet comportera $12$ sites afin de
+  restreindre la complexité du calcul.
+  \subsection{Diagonalisation exacte} % (fold)
+  \label{sub:Diagonalisation exacte}
+    La diagonalisation exacte, malgré son nom, permet une approximation de l'état
+    fondamental en diagonalisant l'hamiltonien. En général, ces hamiltoniens
+    sont de dimension très grande, voire infinie, alors l'écriture de
+    l'hamiltonien se fait dans un plus petit sous-espace. Même pour $12$ sites,
+    cet hamiltonien peut être trop grand pour pouvoir faire des manipualtions
+    dans un temps raisonnable. Pour cette raison, l'encodage utilisé fera usage
+    du fait que le modèle d'Heisenberg utilise des matrices de Pauli, ce qui
+    permet l'usage de chaines de Pauli et de matrices creuses. Des modules déjà
+    produits permettent d'implémenter directement ces techniques, tel que
+    \textit{QuSpin}.
+  
+  % subsection subsection name (end)
+  
+    \subsection{Solutionneur de valeurs propres quantique variationnel} % (fold)
+    \label{sub:vqe}
+    Le solutionneur de valeurs propres quantique (\textit{Variationnal Quantum
+    Eigensolver}) est une technique de diagonalisation qui utilise le
+    principe variationnel pour donner une borne supérieure sur l'énergie de
+    l'état fondamental. Cette technique dérive de la méthode variationnelle en
+    mécanique quantique, soit reposant sur le fait qu'un état propre de
+    l'hamiltonien
+    \begin{align}
+        H\ket{\psi_\lambda}&=E_\lambda\ket{\psi_\lambda}
+    \end{align}
+    permet d'écrire un état général du système comme une combinaison linéaire.
+    \begin{align}
+        \ket{\psi}&=\sum_\lambda\alpha_\lambda\ket{\psi_\lambda}
+    \end{align}
+    Ce qui permet d'écrire la valeur moyenne de $H$ dans l'état $\ket{\psi}$
+    \begin{align}
+        \bra{\psi}H\ket{\psi}&=\sum_{\lambda,\rho}\qty(\alpha_\rho^*\alpha_\lambda
+        \bra{\psi_\rho}H\ket{\psi_\lambda})\\
+        &=\sum_\lambda\abs{\alpha_\lambda}^2E_\lambda\geq E_0
+    \end{align}
+    étant donné que $\sum_\lambda\abs{\alpha_\lambda}^2=1$ et que $E_\lambda\geq
+    E_0$. On peut donc utiliser ce théorème pour donner une bonne borne supérieure
+    à l'énergie du fondamental en introduisant des paramètres à l'état d'essai
+    $\ket{\psi(\{\theta_i\})}$ et en minimisant ainsi la fonction d'énergie
+    $E(\{\theta_i\})$. Sur un ordinateur quantique, préparer un tel état est
+    faisable en appliquant une porte unitaire $U(\{\theta_i\})$ qui assure un
+    bon contrôle sur l'état. Une fois l'état préparé, la valeur moyenne est
+    simple à prendre en effectuant les mesures appropriées.
+    
+    % subsection subsection name (end)
+
+\end{document}
+
