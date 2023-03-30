@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "initiationrecherche"
+name = "src"
 version = "0.1.0"
 description = ""
 authors = ["Dimitri Bonanni-Surprenant <bonanni1496dimitri@gmail.com>"]
@@ -7,14 +7,15 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10, <3.12"
-numpy = "^1.24.1"
+numpy = "^1.23, <1.24"
 scipy = "^1.10.0"
 matplotlib = "^3.6.3"
 pyqt5 = "^5.15.8"
 tqdm = "^4.64.1"
 seaborn = "^0.12.2"
-
+qiskit = "^0.42.1"
+pylatexenc = "^2.10"
 
 [build-system]
-requires = ["poetry-core"]
+requires = ["poetry-core", "cython", "setuptools"]
 build-backend = "poetry.core.masonry.api"

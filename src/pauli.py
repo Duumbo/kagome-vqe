@@ -6,8 +6,8 @@ sigma_y = csr_matrix(([-1j, 1j], ([0, 1], [1, 0])), shape=(2, 2))
 sigma_z = csr_matrix(([1, -1], ([0, 1], [0, 1])), shape=(2, 2))
 sigma_0 = csr_matrix(([1, 1], ([0, 1], [0, 1])), shape=(2, 2))
 
-sigma_p = csr_matrix(([1], ([0], [1])), shape=(2, 2))
-sigma_m = csr_matrix(([1], ([1], [0])), shape=(2, 2))
+sigma_p = csr_matrix(([2], ([0], [1])), shape=(2, 2))
+sigma_m = csr_matrix(([2], ([1], [0])), shape=(2, 2))
 
 # Map du réseau
 reseau ={
