@@ -1,0 +1,48 @@
+{   'aux_operators_evaluated': None,
+    'cost_function_evals': 625,
+    'eigenvalue': -11.180339886429863,
+    'optimal_circuit': <qiskit.circuit.quantumcircuit.QuantumCircuit object at 0x7f10244074c0>,
+    'optimal_parameters': {   ParameterVectorElement(z_param[0]): -5.053482027164443,
+                              ParameterVectorElement(z_param[1]): 6.283184046714237,
+                              ParameterVectorElement(z_param[3]): -3.1415902109185585,
+                              ParameterVectorElement(z_param[2]): -3.141592191982437,
+                              ParameterVectorElement(z_param[4]): -3.6877948984278342e-06,
+                              ParameterVectorElement(z_param[5]): -3.1415934565576342,
+                              ParameterVectorElement(z_param[6]): -3.1415871536163023,
+                              ParameterVectorElement(z_param[7]): 3.14159950572986,
+                              ParameterVectorElement(z_param[8]): 6.283184309025192,
+                              ParameterVectorElement(z_param[9]): -3.141594386039659,
+                              ParameterVectorElement(z_param[10]): -3.141596723666312,
+                              ParameterVectorElement(z_param[11]): -6.283185467207166,
+                              ParameterVectorElement(z_param2[0]): -5.544555309208811,
+                              ParameterVectorElement(z_param2[1]): 1.3400041287077988,
+                              ParameterVectorElement(z_param2[2]): -2.4299179997925715,
+                              ParameterVectorElement(z_param2[3]): 2.5966440635401207,
+                              ParameterVectorElement(z_param2[4]): 0.08338238520840759,
+                              ParameterVectorElement(z_param2[5]): -3.0582361764976365,
+                              ParameterVectorElement(z_param2[6]): 1.968325341612264,
+                              ParameterVectorElement(z_param2[7]): -0.5449638471356871,
+                              ParameterVectorElement(z_param2[8]): 3.8532876847150974,
+                              ParameterVectorElement(z_param2[9]): 1.3400102054449794,
+                              ParameterVectorElement(z_param2[10]): -5.571481351381159,
+                              ParameterVectorElement(z_param2[11]): -3.6865265018461906},
+    'optimal_point': array([-5.54455531e+00,  1.34000413e+00, -2.42991800e+00,  2.59664406e+00,
+        8.33823852e-02, -3.05823618e+00,  1.96832534e+00, -5.44963847e-01,
+        3.85328768e+00,  1.34001021e+00, -5.57148135e+00, -3.68652650e+00,
+       -5.05348203e+00,  6.28318405e+00, -3.14159219e+00, -3.14159021e+00,
+       -3.68779490e-06, -3.14159346e+00, -3.14158715e+00,  3.14159951e+00,
+        6.28318431e+00, -3.14159439e+00, -3.14159672e+00, -6.28318547e+00]),
+    'optimal_value': -11.180339886429863,
+    'optimizer_evals': None,
+    'optimizer_result':   message: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+  success: True
+   status: 0
+      fun: -11.180339886429863
+        x: [-5.545e+00  1.340e+00 ... -3.142e+00 -6.283e+00]
+      nit: 22
+      jac: [ 1.101e-05 -9.948e-06 ... -1.332e-05 -5.329e-07]
+     nfev: 625
+     njev: 25
+ hess_inv: <24x24 LbfgsInvHessProduct with dtype=float64>,
+    'optimizer_time': 12.104220867156982}EstimatorResult(values=array([-21.77950087]), metadata=[{}])[-21.77950087 -21.31356962 -21.19294616 -21.19294616 -20.66117386
+ -20.2488274  -20.66117386 -20.66117386 -20.2488274  -20.2488274 ]

@@ -1,7 +1,7 @@
 import numpy as np
-from scipy.sparse import kron, csr_matrix
+from scipy.sparse import kron, csr_matrix, eye
 from tqdm import tqdm
-from pauli import sigma_0, sigma_m, sigma_p, reseau, sigma_z
+from pauli import sigma_x, sigma_y, sigma_z, reseau, sigma_0
 
 
 """
@@ -18,34 +18,31 @@ $$
 
 # Gen la matrice
 def gen_matrice() -> csr_matrix:
+    ham_z = eye(1, dtype=float)
+    ham_x = eye(1, dtype=float)
+    ham_y = eye(1, dtype=float)
     ham = csr_matrix((2**12, 2**12), dtype=float)
     for i, val in tqdm(reseau.items()):
-        splus = sigma_p.copy()
-        smoins = sigma_m.copy()
-        zz = sigma_z.copy()
-        l = 0
-        while(i > l):
-            splus = kron(sigma_0, splus)
-            smoins = kron(sigma_0, smoins)
-            zz = kron(sigma_0, zz)
-            l += 1
-        k = i
-        for n, j in enumerate(val):
-            tmplus = splus.copy()
-            tmoins = smoins.copy()
-            tmzz = zz.copy()
-            for m in range(11 - i):
-                if j != k:
-                    tmplus = kron(tmplus, sigma_0)
-                    tmoins = kron(tmoins, sigma_0)
-                    tmzz = kron(tmzz, sigma_0)
-                if j == k:
-                    tmplus = kron(tmplus, sigma_m)
-                    tmoins = kron(tmoins, sigma_p)
-                    tmzz = kron(tmzz, sigma_z)
-                k += 1
-            ham += tmplus
-            ham += tmoins
-            ham += tmzz
+        for j in val:
+            l = 11
+            while l != -1:
+                if l == i:
+                    ham_z = kron(ham_z, sigma_z)
+                    ham_x = kron(ham_x, sigma_x)
+                    ham_y = kron(ham_y, sigma_y)
+                elif l == j:
+                    ham_z = kron(ham_z, sigma_z)
+                    ham_x = kron(ham_x, sigma_x)
+                    ham_y = kron(ham_y, sigma_y)
+                else:
+                    ham_z = kron(ham_z, sigma_0)
+                    ham_x = kron(ham_x, sigma_0)
+                    ham_y = kron(ham_y, sigma_0)
+                l -= 1
+            print(ham)
+            ham = ham + ham_y + ham_z + ham_x
+            ham_z = eye(1, dtype=float)
+            ham_x = eye(1, dtype=float)
+            ham_y = eye(1, dtype=float)
     return ham
 

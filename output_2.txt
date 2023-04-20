@@ -1,0 +1,37 @@
+{   'aux_operators_evaluated': None,
+    'cost_function_evals': 403,
+    'eigenvalue': -0.6371811969237944,
+    'optimal_circuit': <qiskit.circuit.library.data_preparation.pauli_feature_map.PauliFeatureMap object at 0x7f1024db3a90>,
+    'optimal_parameters': {   ParameterVectorElement(x[1]): -0.28391698848253927,
+                              ParameterVectorElement(x[9]): -6.095464304078644,
+                              ParameterVectorElement(x[0]): -0.44797721100534155,
+                              ParameterVectorElement(x[3]): -4.639490336026509,
+                              ParameterVectorElement(x[4]): -1.2905792943773304,
+                              ParameterVectorElement(x[2]): 5.799238996543894,
+                              ParameterVectorElement(x[7]): 2.4378870871586513,
+                              ParameterVectorElement(x[5]): 1.4355129432658067,
+                              ParameterVectorElement(x[6]): -3.489288701996894,
+                              ParameterVectorElement(x[8]): 5.666690874162368,
+                              ParameterVectorElement(x[11]): 6.024395675200821,
+                              ParameterVectorElement(x[10]): 6.1002647595763815},
+    'optimal_point': array([-0.44797721, -0.28391699,  5.799239  , -4.63949034, -1.29057929,
+        1.43551294, -3.4892887 ,  2.43788709,  5.66669087, -6.0954643 ,
+        6.10026476,  6.02439568]),
+    'optimal_value': -0.6371811969237944,
+    'optimizer_evals': None,
+    'optimizer_result':   message: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
+  success: True
+   status: 0
+      fun: -0.6371811969237944
+        x: [-4.480e-01 -2.839e-01  5.799e+00 -4.639e+00 -1.291e+00
+             1.436e+00 -3.489e+00  2.438e+00  5.667e+00 -6.095e+00
+             6.100e+00  6.024e+00]
+      nit: 23
+      jac: [ 7.681e-05 -3.586e-06 -9.948e-06 -5.096e-05  1.353e-05
+            -8.936e-05 -5.942e-05  8.183e-05 -3.489e-05  3.841e-06
+            -4.392e-05 -1.409e-05]
+     nfev: 403
+     njev: 31
+ hess_inv: <12x12 LbfgsInvHessProduct with dtype=float64>,
+    'optimizer_time': 36.40897250175476}EstimatorResult(values=array([-21.77950087]), metadata=[{}])[-21.77950087 -21.31356962 -21.19294616 -21.19294616 -20.66117386
+ -20.2488274  -20.66117386 -20.66117386 -20.2488274  -20.2488274 ]
