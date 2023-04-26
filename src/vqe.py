@@ -48,12 +48,38 @@ px2 = ParameterVector("x_param2", N)
 for i in range(N):
     qc_1.h(i)
     qc_1.u(np.pi/2, px.params[i], pz_1.params[i], i)
-param_list_1 = []
 for i, voisins in reseau.items():
     for j in voisins:
         qc_1.cx(i, j)
 for i in range(N):
     qc_1.u(np.pi/2, px2.params[i], pz2_1.params[i], i)
+
+
+# Ansatz 3
+qc_2 = QuantumCircuit(N)
+pz_2 = ParameterVector("z_param", 12)
+px2 = ParameterVector("x_param", 12)
+pz2_2 = ParameterVector("z_param2", 12)
+px22 = ParameterVector("x_param2", 12)
+pz22_2 = ParameterVector("z_param3", 12)
+px222 = ParameterVector("x_param3", 12)
+for i in range(N):
+    qc_2.h(i)
+    qc_2.u(np.pi/2, px2.params[i], pz_2.params[i], i)
+allready_visited = []
+for i, voisins in reseau.items():
+    for j in voisins:
+        if j in allready_visited:
+            qc_2.u(np.pi/2, -px222.params[j], -pz22_2.params[j], j)
+            qc_2.cx(i, j)
+            qc_2.u(np.pi/2, px222.params[j], pz22_2.params[j], j)
+        else:
+            qc_2.u(np.pi/2, px22.params[j], pz2_2.params[j], j)
+            qc_2.cx(i, j)
+            qc_2.u(np.pi/2, px222.params[j], pz22_2.params[j], j)
+        allready_visited.append(j)
+for i in range(N):
+    qc_2.u(np.pi/2, px2.params[i], pz_2.params[i], i)
 
 # Gen Ham
 """
@@ -69,7 +95,7 @@ for i, voisins in reseau.items():
         pauli_strings.append(pauli_string_x)
         pauli_strings.append(pauli_string_y)
 
-for i, ansatz in enumerate([qc, ZFeatureMap(12, reps=2), PauliFeatureMap(12, reps=2), ZFeatureMap(12, reps=2), qc_1]):
+for i, ansatz in enumerate([qc, ZFeatureMap(12, reps=2), PauliFeatureMap(12, reps=2), ZFeatureMap(12, reps=2), qc_1, qc_2]):
     with open(f"output_{i}.txt", "w") as fp:
         it = []
         exp = []

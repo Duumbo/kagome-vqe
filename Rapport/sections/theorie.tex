@@ -1,12 +1,21 @@
 \documentclass[../main.tex]{subfiles}
 
 \begin{document}
-  
+
   \section{Théorie}
   L'estimation de l'état fondamental d'un réseau appartient aux problèmes à $N$
   corps. Ce type de problème est très difficile à résoudre en général. Pour cette
   raison, le réseau utilisé dans ce projet comportera $12$ sites afin de
-  restreindre la complexité du calcul.
+  restreindre la complexité du calcul. L'état fondamental sera estimé en utilisant
+  l'hamiltonien de Heisenberg, soit
+  \begin{align}
+      H&=t\sum_{<i,j>}\mathbf{S}_i\cdot\mathbf{S}_j
+  \end{align}
+  avec $t$ une constante de couplage positive. Cet hamiltonien permet de capturer
+  le phénomène d'anti-ferromagnétisme en priviliégeant les état pour lesquels
+  les spins sont anti-alignés. L'état fondamental de cet hamiltonien sur le réseau
+  kagome ne sera pas simple, car le réseau est frustré géométriquement, donnant
+  une grande dégénérescence.
   \subsection{Diagonalisation exacte} % (fold)
   \label{sub:Diagonalisation exacte}
     La diagonalisation exacte, malgré son nom, permet une approximation de l'état
@@ -19,9 +28,9 @@
     permet l'usage de chaines de Pauli et de matrices creuses. Des modules déjà
     produits permettent d'implémenter directement ces techniques, tel que
     \textit{QuSpin}.
-  
+
   % subsection subsection name (end)
-  
+
     \subsection{Solutionneur de valeurs propres quantique variationnel} % (fold)
     \label{sub:vqe}
     Le solutionneur de valeurs propres quantique (\textit{Variationnal Quantum
@@ -51,7 +60,7 @@
     faisable en appliquant une porte unitaire $U(\{\theta_i\})$ qui assure un
     bon contrôle sur l'état. Une fois l'état préparé, la valeur moyenne est
     simple à prendre en effectuant les mesures appropriées.
-    
+
     % subsection subsection name (end)
 
 \end{document}

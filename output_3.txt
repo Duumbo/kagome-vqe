@@ -1,37 +1,37 @@
 {   'aux_operators_evaluated': None,
-    'cost_function_evals': 312,
-    'eigenvalue': -8.521381732904137,
-    'optimal_circuit': <qiskit.circuit.library.data_preparation.z_feature_map.ZFeatureMap object at 0x7f10244ba6e0>,
-    'optimal_parameters': {   ParameterVectorElement(x[5]): 4.92619144667916,
-                              ParameterVectorElement(x[0]): -2.8141243192939616,
-                              ParameterVectorElement(x[11]): -0.36344230494345536,
-                              ParameterVectorElement(x[7]): -4.955624135665792,
-                              ParameterVectorElement(x[1]): -1.5544224024849418,
-                              ParameterVectorElement(x[10]): -3.17663585394971,
-                              ParameterVectorElement(x[3]): -4.843624688300578,
-                              ParameterVectorElement(x[9]): 1.5964948380356034,
-                              ParameterVectorElement(x[4]): -3.2750182600242796,
-                              ParameterVectorElement(x[2]): -3.0940450359664093,
-                              ParameterVectorElement(x[6]): 1.8477894821764893,
-                              ParameterVectorElement(x[8]): 0.0631020240748015},
-    'optimal_point': array([-2.81412432, -1.5544224 , -3.09404504, -4.84362469, -3.27501826,
-        4.92619145,  1.84778948, -4.95562414,  0.06310202,  1.59649484,
-       -3.17663585, -0.3634423 ]),
-    'optimal_value': -8.521381732904137,
+    'cost_function_evals': 338,
+    'eigenvalue': -8.555122651362502,
+    'optimal_circuit': <qiskit.circuit.library.data_preparation.z_feature_map.ZFeatureMap object at 0x7f24d4220c40>,
+    'optimal_parameters': {   ParameterVectorElement(x[8]): 1.5355128919438263,
+                              ParameterVectorElement(x[6]): 4.687954504380094,
+                              ParameterVectorElement(x[10]): 3.48126505596191,
+                              ParameterVectorElement(x[9]): 6.5310371513780385,
+                              ParameterVectorElement(x[11]): -0.2547383844742169,
+                              ParameterVectorElement(x[5]): -4.376267696021916,
+                              ParameterVectorElement(x[4]): 2.880812773030601,
+                              ParameterVectorElement(x[3]): -4.837148430170177,
+                              ParameterVectorElement(x[7]): -3.2518633799951955,
+                              ParameterVectorElement(x[0]): 0.004283241039905457,
+                              ParameterVectorElement(x[1]): -4.627127497654954,
+                              ParameterVectorElement(x[2]): -6.281583282939703},
+    'optimal_point': array([ 4.28324104e-03, -4.62712750e+00, -6.28158328e+00, -4.83714843e+00,
+        2.88081277e+00, -4.37626770e+00,  4.68795450e+00, -3.25186338e+00,
+        1.53551289e+00,  6.53103715e+00,  3.48126506e+00, -2.54738384e-01]),
+    'optimal_value': -8.555122651362502,
     'optimizer_evals': None,
     'optimizer_result':   message: CONVERGENCE: REL_REDUCTION_OF_F_<=_FACTR*EPSMCH
   success: True
    status: 0
-      fun: -8.521381732904137
-        x: [-2.814e+00 -1.554e+00 -3.094e+00 -4.844e+00 -3.275e+00
-             4.926e+00  1.848e+00 -4.956e+00  6.310e-02  1.596e+00
-            -3.177e+00 -3.634e-01]
-      nit: 20
-      jac: [ 5.294e-05 -6.697e-05 -5.400e-05  3.784e-05 -6.697e-05
-             1.377e-04 -2.132e-05 -5.151e-06 -3.038e-05 -7.159e-05
-             1.368e-05 -2.487e-06]
-     nfev: 312
-     njev: 24
+      fun: -8.555122651362502
+        x: [ 4.283e-03 -4.627e+00 -6.282e+00 -4.837e+00  2.881e+00
+            -4.376e+00  4.688e+00 -3.252e+00  1.536e+00  6.531e+00
+             3.481e+00 -2.547e-01]
+      nit: 24
+      jac: [-8.313e-05  2.629e-05 -5.311e-05  4.796e-05 -2.771e-05
+             1.812e-05  2.007e-05 -5.684e-06 -3.055e-05 -6.786e-05
+             1.025e-04 -2.842e-05]
+     nfev: 338
+     njev: 26
  hess_inv: <12x12 LbfgsInvHessProduct with dtype=float64>,
-    'optimizer_time': 6.173689603805542}EstimatorResult(values=array([-21.77950087]), metadata=[{}])[-21.77950087 -21.31356962 -21.19294616 -21.19294616 -20.66117386
+    'optimizer_time': 6.897415637969971}EstimatorResult(values=array([-21.77950087]), metadata=[{}])[-21.77950087 -21.31356962 -21.19294616 -21.19294616 -20.66117386
  -20.2488274  -20.66117386 -20.66117386 -20.2488274  -20.2488274 ]
