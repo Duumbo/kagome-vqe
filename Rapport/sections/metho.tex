@@ -41,7 +41,7 @@
         On peut décomposer l'hamiltonien sous forme de somme de valeurs moyenne
         d'opérateurs qui s'écrivent complètement sous forme de chaines de matrice de Pauli.
         Il est simple de mesurer les valeurs moyennes de ces chaines de Pauli, comme
-        les valeurs moyennes des matrices de Pauli sont simple.
+        les valeurs moyennes des matrices de Pauli sont simple, voir la figure (\ref{fig:mes}).
         Il suffit de mesurer les qubits dans la base associée à l'opérateur voulu.
         La valeur moyenne de l'opérateur s'obtient ensuite en calculant la moyenne
         pondérée du résultat obtenu.
@@ -59,7 +59,7 @@
             \caption{Mesures des observables $Z$, $X$ et $Y$ respectivement. L'état
             représenté est un état quelconque à un seul qubit. Pour plusieurs qubits,
             il suffit d'appliquer le changement de base à chacun avant la mesure.}
-            \label{fig:}
+            \label{fig:mes}
         \end{figure}
         Dans le cas présent, l'hamiltonien se décompose en chaines de Pauli de la
         manière suivante.
@@ -93,14 +93,17 @@
         Pour y arriver, $2$ états d'essai ont été conçu avec cette idée en tête.\\
         Le premier état d'essai à considérer est très simple, avec $24$ paramètres
         libres.
-        %\begin{figure}[H]
-        %    \begin{center}
-        %        \includegraphics[width=0.95\textwidth]{figs/ans_1.png}
-        %    \end{center}
-        %    \caption{Bloc de circuit préparant le premier état d'essai. Ce bloc est
-        %    répété entre chaque qubits présentant un lien dans le réseau.}
-        %    \label{fig:}
-        %\end{figure}
+        \begin{figure}[H]
+            \begin{center}
+                \includegraphics[width=0.95\textwidth]{figs/ansatz1.pdf}
+            \end{center}
+            \caption{Bloc de circuit préparant le premier état d'essai. Ce bloc est
+            répété entre chaque qubits présentant un lien dans le réseau. Les deux
+            qubits représentés sont ceux pour lesquels un lien existe sur le réseau,
+            il n'y aurait pas de porte $CX$ entre deux site pour lesquels il n'y a
+            pas de lien.}
+            \label{fig:}
+        \end{figure}
         Les paramètres libre de ce circuit contrôles les phases individuelles
         de chaque qubit avant et après le terme d'interaction, représenté par
         la porte $CX$. Ceci permet d'approcher le minimum car cet état permet
@@ -112,12 +115,12 @@
         Le second état d'essai à considérer apporte cette idée plus loin. Avec
         $2$ fois plus de paramètres, on peut ajouter une inclinaison par rapport
         au plan $O_{xy}$, sur la sphère de Bloch, supplémentaire aux qubits.
-        %\begin{figure}[H]
-        %    \begin{center}
-        %        \includegraphics[width=0.95\textwidth]{figs/ans_2.png}
-        %    \end{center}
-        %    \label{fig:}
-        %\end{figure}
+        \begin{figure}[H]
+            \begin{center}
+                \includegraphics[width=0.95\textwidth]{figs/ansatz2.pdf}
+            \end{center}
+            \label{fig:}
+        \end{figure}
         En considérant seulement deux qubits, ces paramètres permettent entièrement
         de minimiser les observables $ZZ$, $XX$ et $YY$ en même temps. Dans le cas
         à l'étude ici, ce n'est pas le cas car les paramètres qui minimisent

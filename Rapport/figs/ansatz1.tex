@@ -1,0 +1,12 @@
+\documentclass[border=2px]{standalone}
+
+\usepackage[braket, qm]{qcircuit}
+\usepackage{graphicx}
+
+\begin{document}
+\scalebox{1.0}{
+\Qcircuit @C=1.0em @R=0.2em @!R { \\
+	 	\nghost{{q}_{0} :  } & \lstick{{q}_{0} :  } & \gate{\mathrm{H}} & \gate{\mathrm{P}\,(\mathrm{\theta_1})} & \ctrl{1} & \gate{\mathrm{P}\,(\mathrm{\theta_3})} & \qw & \qw\\
+	 	\nghost{{q}_{1} :  } & \lstick{{q}_{1} :  } & \gate{\mathrm{H}} & \gate{\mathrm{P}\,(\mathrm{\theta_2})} & \targ & \gate{\mathrm{P}\,(\mathrm{\theta_4})} & \qw & \qw\\
+\\ }}
+\end{document}

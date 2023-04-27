@@ -11,7 +11,9 @@
   \begin{align}
       H&=t\sum_{<i,j>}\mathbf{S}_i\cdot\mathbf{S}_j
   \end{align}
-  avec $t$ une constante de couplage positive. Cet hamiltonien permet de capturer
+  avec $t$ une constante de couplage positive, et $\qty(\mathbf{S}_i)_j=\sigma_j,\ j\in\{x,y,z\}$,
+  l'opérateur de moment cinétique intrinsèque au site $i$.
+  Cet hamiltonien permet de capturer
   le phénomène d'anti-ferromagnétisme en priviliégeant les état pour lesquels
   les spins sont anti-alignés. L'état fondamental de cet hamiltonien sur le réseau
   kagome ne sera pas simple, car le réseau est frustré géométriquement, donnant
@@ -19,15 +21,51 @@
   \subsection{Diagonalisation exacte} % (fold)
   \label{sub:Diagonalisation exacte}
     La diagonalisation exacte, malgré son nom, permet une approximation de l'état
-    fondamental en diagonalisant l'hamiltonien. En général, ces hamiltoniens
-    sont de dimension très grande, voire infinie, alors l'écriture de
+    fondamental en diagonalisant l'hamiltonien, la matrice décrivant la dynamique
+    du système, ayant pour valeurs propres les énergies possible du système.
+    En général, les hamiltoniens qu'on peut écrire pour les problèmes
+    à $N$ corps
+    sont de dimension exponentielle en terme du nombre de site,
+    alors l'écriture de
     l'hamiltonien se fait dans un plus petit sous-espace. Même pour $12$ sites,
     cet hamiltonien peut être trop grand pour pouvoir faire des manipualtions
     dans un temps raisonnable. Pour cette raison, l'encodage utilisé fera usage
     du fait que le modèle d'Heisenberg utilise des matrices de Pauli, ce qui
-    permet l'usage de chaines de Pauli et de matrices creuses. Des modules déjà
+    permet l'usage de chaines de Pauli et de matrices creuses. L'utilisation
+    de matrices creuses est pertinente, car elles permettent d'utiliser des matrices
+    de grande dimension sans prendre toute la mémoire d'une matrice explicite.
+    Ceci permet d'utiliser la méthode de Lanczos pour déterminer la valeur
+    propre minimale, soit l'énergie minimale\cite{senech}. La méthode de Lanczos repose sur
+    le fait qu'on peut restreindre l'espace des vecteurs propres au sous-espace
+    de Krylov, dans lequel on peut écrire une matrice tridiagonale de dimension
+    beaucoup plus petite dont les valeurs propres extrèmes convergent aux mêmes
+    que la matrice creuse initiale\cite{livreboboche}. Pour ce faire, il est seulement requis de
+    savoir comment appliquer la matrice sur un vecteur aléatoire $\ket{\psi_0}$,
+    qui permet ensuite de bâtir une base orthogonale dans laquelle on peut écrire
+    la matrice tridiagonale, soit
+    \begin{align}
+        K&=\span{\ket{\psi_0},H\ket{\psi_0},...,H^{M-1}\ket{\psi_0}}
+    \end{align}
+    On peut ensuite obtenir une base du sous-espace de Krylov avec la relation
+    de récurence
+    \begin{align}
+        \ket{\psi_{n+1}}=H\ket{\psi_n}-a_n\ket{\psi_n}-b^2_n\ket{\psi_{n-1}}\\
+        a_n=\frac{\expval{\psi_n|H|\psi_n}}{\braket{\psi_n}{\psi_n}}\qquad
+        b^2_n=\frac{\braket{\psi_n}{\psi_n}}{\braket{\psi_{n-1}}{\psi_{n-1}}}
+    \end{align}
+    Ce qui permet ensuite d'écrire la matrice tridiagonale de dimension $M$ qui
+    possède les mêmes valeurs propres extrêmes
+    \begin{align}
+        T&=\begin{pmatrix}
+            a_0&b_1&0&\cdots&0\\
+            b_1&a_1&b_2&\cdots&0\\
+            \vdots&\vdots&\vdots&\ddots&\vdots\\
+            0&0&0&\cdots&a_{M-1}
+        \end{pmatrix}
+    \end{align}
+    Des modules déjà
     produits permettent d'implémenter directement ces techniques, tel que
-    \textit{QuSpin}.
+    \textit{QuSpin}\cite{10.21468/SciPostPhys.7.2.020}
 
   % subsection subsection name (end)
 
